@@ -45,7 +45,7 @@ class Connection:
                     firstName VARCHAR(120) NOT NULL,
                     lastname VARCHAR (120) NOT NULL,
                     middlename VARCHAR (120),
-                    mobileNumber INTEGER UNIQUE NOT NULL ,
+                    mobileNumber VARCHAR(20) UNIQUE NOT NULL,
                     occupation VARCHAR (40),
                     date_of_birth DATE,
                     constraint customer_pk PRIMARY KEY(customerId)
@@ -60,6 +60,7 @@ class Connection:
                            accountOpeningDate DATE DEFAULT(CURRENT_DATE ),
                            constraint account_pk PRIMARY KEY(accountNumber),
                            constraint account_fk FOREIGN KEY(customerId) references Customer(customerId)
+                           ON DELETE CASCADE 
                        );
                    ''',
                    '''
@@ -72,8 +73,10 @@ class Connection:
                            transactionMedium VARCHAR(50) NOT NULL,
                            constraint transactions_pk PRIMARY KEY(transactionId),
                            constraint transactions_fk FOREIGN KEY(accountNumber) references Account(accountNumber)
+                           ON DELETE CASCADE 
                        );
-                   ''']
+                   ''',
+                   ]
         cursor = self.conn.cursor()
         for query in queries:
             cursor.execute(query)
