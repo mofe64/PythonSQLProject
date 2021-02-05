@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from Connection import Connection
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from Util import *
 
+userChoice_str = input("""Welcome to Nubari Bank 
+Enter 1 To Create a new Account
+Enter 2 To Check your Account details
+Enter 3 To Update your Account Details
+Enter 4 To Make A New Transaction
+Enter 5 To View Your Transaction History
+Enter 6 To Delete Your Account
+Enter 7 to Quit  
+""")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+userChoice_int = int(userChoice_str)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if userChoice_int == 1:
+    create_new_account()
+if userChoice_int == 2:
+    account_number = int(input("Enter account number"))
+    get_account_details(account_number)
+if userChoice_int == 3:
+    account_number = int(input("Enter account number"))
+    get_account_details(account_number)
