@@ -85,15 +85,3 @@ class Connection:
         sql = f'Use {self.__db_name}'
         cursor = self.conn.cursor()
         cursor.execute(sql)
-
-    # def get_cursor(self):
-    #     return self.__cursor
-    #
-    # def get_connection(self):
-    #     return self.__conn
-    #
-    # def get_dbname(self):
-    #     return self.__db_name
-    #
-    # def get_connection_status(self):
-    #     return self.__connectionStatus
